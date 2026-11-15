@@ -5,6 +5,7 @@
 Picture::Picture()
 	:head{nullptr}, tail{nullptr} // creation of head and tail data members
 	// will work for the nested list of pictures 
+	// empty picture with no shapes 
 {
 }
 
@@ -50,7 +51,56 @@ double Picture::total_area() const
     return total;
 }
 
+// copy constructor takes the picture and then goes through the picture and adds it to this picture
+Picture::Picture(const Picture& other)
+    : head{nullptr}, tail{nullptr}
+{
+    for (ListNode* p = other.head; p != nullptr; p = p->next) {
+        add(*p->shape);
+    }
+}
 
+// for the dying pictures that will be destructed taking over and moving the memory 
+Picture::Picture(Picture&& other)
+    : head{other.head}, tail{other.tail}
+{
+    other.head = nullptr;
+    other.tail = nullptr;
+}
+
+// trade lists with other
+void Picture::swap(Picture& other)
+{
+    std::swap(head, other.head);
+    std::swap(tail, other.tail);
+}
+
+// copy assignment 
+// makes a full copy of the picture and the trades the lists 
+Picture& Picture::operator=(const Picture& other)
+{
+    Picture copy{other};
+    swap(copy);
+    return *this;
+}
+
+// doesnt need a copy since the originally picture memory will be freed shortly usually  
+Picture& Picture::operator=(Picture&& other)
+{
+    swap(other);
+    return *this;
+}
+
+
+// since picture is a collection of shapes ( linked list of them ) 
+// destructor needs to go through each node and delete each one 
 Picture::~Picture()
 {
+    ListNode* p = head;
+    while (p != nullptr) {
+        ListNode* next = p->next;
+        delete p->shape;
+        delete p;
+        p = next;
+    }
 }
