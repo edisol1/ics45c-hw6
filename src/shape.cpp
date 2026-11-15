@@ -11,5 +11,4 @@ Shape::Shape(Point center, std::string name)
 void Shape::print(std::ostream& out) const
 {
 // printing out the values for the shape attributes 
-    out << name << " at (" << center.x << ", " << center.y << ")\n";
-}
+        out << name << " at (" << center.x << ", " << center.y << ") area = " << area() << '\n';}
