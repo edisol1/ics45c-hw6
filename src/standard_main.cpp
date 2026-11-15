@@ -16,7 +16,9 @@ int main(int argc, char * argv[])
 	collage.add(Rectangle{Point{3, 4}, "Rectangle_1", 8, 4});
 
 	collage.add(Triangle{Point{6, 7}, "Triangle_1", 5, 5});
-    
+   
+   	collage.add(Square{Point{1, 10}, "Square_1", 10});
+	
 	collage.print_all(cout);
 
 	collage.draw_all(cout);
