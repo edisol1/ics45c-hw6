@@ -9,5 +9,9 @@ using namespace std;
 
 int main(int argc, char * argv[])
 {
-    cout << argv[argc-1] << " says Hello World\n";
+    Picture collage;
+
+    collage.add(Circle{Point{0, 0}, "Circle_1", 5});
+    
+    collage.print_all(cout);
 }
