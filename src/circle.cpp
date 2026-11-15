@@ -14,11 +14,18 @@ double Circle::area() const
     return 0.0; 
 }
 
-void Circle::draw(std::ostream& out) const
-{
-}
-
 Circle* Circle::clone() const
 {
     return new Circle{*this}; // creating a clone of the original circle object
 }
+
+void Circle::draw(std::ostream& out) const {
+    for (int y = -radius; y <= radius; y += 2) {
+        for (int x = -radius; x <= radius; ++x) {
+            out << (x * x + y * y <= radius * radius ? '*' : ' ');
+        }
+
+        out << '\n';
+    }
+}
+
