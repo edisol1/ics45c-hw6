@@ -31,6 +31,15 @@ void Picture::print_all(std::ostream& out) const
     }
 }
 
+// temp added circle draw so now just loop through and call that shapes draw function 
+void Picture::draw_all(std::ostream& out) const
+{
+    for (ListNode* p = head; p != nullptr; p = p->next) {
+        p->shape->draw(out);
+    }
+}
+
+
 Picture::~Picture()
 {
 }
