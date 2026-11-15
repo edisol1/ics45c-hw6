@@ -11,7 +11,7 @@ Circle::Circle(Point center, std::string name, int radius)
 
 double Circle::area() const
 {
-    return 0.0; 
+    return std::numbers::pi * radius * radius; // pi r squared for area of circle  
 }
 
 Circle* Circle::clone() const

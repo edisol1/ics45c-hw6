@@ -39,6 +39,16 @@ void Picture::draw_all(std::ostream& out) const
     }
 }
 
+// all the functions are doing the same thing just looping through every shape and getting the area using the shapes area function 
+double Picture::total_area() const
+{
+    double total = 0.0;
+    for (ListNode* p = head; p != nullptr; p = p->next) {
+        total += p->shape->area();
+    }
+    return total;
+}
+
 
 Picture::~Picture()
 {

@@ -15,5 +15,8 @@ int main(int argc, char * argv[])
     
     collage.print_all(cout);
 
-	collage.draw_all(cout); 
+	collage.draw_all(cout);
+
+	cout << "Total area = " << collage.total_area() << '\n';
+	// need to print it out since the total area returns double instead of void 
 }
