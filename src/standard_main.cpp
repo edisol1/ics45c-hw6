@@ -12,7 +12,9 @@ int main(int argc, char * argv[])
     Picture collage;
 
     collage.add(Circle{Point{0, 0}, "Circle_1", 5});
-    
+
+	collage.add(Rectangle{Point{3, 4}, "Rectangle_1", 8, 4});
+       
     collage.print_all(cout);
 
 	collage.draw_all(cout);

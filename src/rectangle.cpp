@@ -1,2 +1,28 @@
 #include "rectangle.hpp"
 #include <iostream>
+
+// same deal as circle except instead of area i have the width and height for the rectangle 
+Rectangle::Rectangle(Point center, std::string name, int width, int height)
+    : Shape{center, name}, width{width}, height{height}
+{
+}
+
+// area formula 
+double Rectangle::area() const
+{
+    return width * height;
+}
+
+Rectangle* Rectangle::clone() const
+{
+    return new Rectangle{*this};
+}
+
+void Rectangle::draw(std::ostream& out) const {
+    for (int i = 0; i < height; i += 2) {
+        for (int j = 0; j < width; ++j) {
+            out << '*';
+        }
+        out << '\n';
+    }
+}
