@@ -30,3 +30,7 @@ void Picture::print_all(std::ostream& out) const
         p->shape->print(out);
     }
 }
+
+Picture::~Picture()
+{
+}
